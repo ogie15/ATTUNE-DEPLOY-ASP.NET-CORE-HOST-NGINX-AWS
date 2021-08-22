@@ -1,4 +1,4 @@
-## **Deploy-ASP.NET~\Core-Ubuntu~\Host-Nginx-AWS**
+## **Deploy-ASP.NET\~Core-Ubuntu\~Host-Nginx-AWS**
 > #### **Region for ExecutionPolicy**
 > - *The script above first gets the execution policy of the current PowerShell session.*
 > 
