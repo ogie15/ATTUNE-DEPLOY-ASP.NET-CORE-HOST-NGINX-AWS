@@ -30,7 +30,7 @@ if ($Script:ValueProcessEP -eq 0) {
 
 
 
-#Region Start EC2 Instance
+#Region Deploy Ubuntu Host For ASP.NET CORE with NGINX
 # ===========================================================================
 # Import Module for AWS PowerShell
 Import-Module -Name AWSPowerShell
@@ -51,8 +51,7 @@ $Script:AWSImageId = "ami-0244a5621d426859b"
 $Script:AWSInstanceType = "t2.micro"
 
 # # Hash Table of InstanceId with coressponding region pair
-# $Script:HashValue = {hashvalue.value}
-$Script:HashValue = @{"Region" = "eu-west-2";"KeyPair" = "pemkey"}
+$Script:HashValue = {hashvalue.value}
 
 
 
@@ -108,5 +107,5 @@ if ($null -eq $Script:HashValue['KeyPair'] -or $null -eq $Script:HashValue['Regi
 # Remove Profile
 Remove-AWSCredentialProfile -ProfileName $Script:ProfileNameVaule -Force
 
-#EndRegion Start EC2 Instance
+#EndRegion Deploy Ubuntu Host For ASP.NET CORE with NGINX
 # ===========================================================================
