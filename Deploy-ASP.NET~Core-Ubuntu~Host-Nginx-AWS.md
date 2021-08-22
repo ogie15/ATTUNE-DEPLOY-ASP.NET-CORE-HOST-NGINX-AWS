@@ -1,4 +1,4 @@
-## **Deploy-ASP.NET~Core-Ubuntu~Host-Nginx-AWS**
+## **Deploy-ASP.NET~\Core-Ubuntu~\Host-Nginx-AWS**
 > #### **Region for ExecutionPolicy**
 > - *The script above first gets the execution policy of the current PowerShell session.*
 > 
@@ -28,13 +28,13 @@
 > > > | :----: | :---: | :---: | :---: | :---: |
 > > > | {accesskey.value} | (value) Inputs->Text Vaules->Variable | (access) Inputs->Text Vaules->Name | String | HKOPUHIVJOQQN3YNLCIL |
 > > > | {secretkey.value} | (value) Inputs->Text Vaules->Variable | (secretkey) Inputs->Text Parameter->Name | String | MJYj7oBcNMTe+R+TTIWdQqXLYcttQ8IOwh1O9zH5 | 
-> > > | {hashvalue.value} | (value) Inputs->Text Vaules->Variable | (hashvalue) Inputs->Text Parameter->Name | Hash Table | @{"Region" = "eu-west-2";"KeyPair" = "pemkey"} |
+> > > | {hashvalue.value} | (value) Inputs->Text Vaules->Variable | (hashvalue) Inputs->Text Parameter->Name | Hash Table | @{"Region" = "eu-west-2";"KeyPair" = "pemkeyname"} |
 > > > > ---
 > > > > The Hash Table holds the InstanceID with it's corresponding Region.
 > > > > ##### *Hash Table Value Syntax:*
 > > > > 
 > > > > ```powershell
-> > > > @{"Region" = "eu-west-2";"KeyPair" = "pemkey"}
+> > > > @{"Region" = "eu-west-2";"KeyPair" = "pemkeyname"}
 > > > > ```
 > > > > ##### *Next the UserDataText Variable is set*
 > > > > ##### *UserDataText variable is a shell script as written below:*
