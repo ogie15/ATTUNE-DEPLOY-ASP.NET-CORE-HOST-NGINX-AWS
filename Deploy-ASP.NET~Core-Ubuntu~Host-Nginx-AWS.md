@@ -9,7 +9,7 @@
 
 ---
 
-## **Region Deploy Ubuntu Host For ASP.NET CORE with NGINX**
+## Region to Deploy Ubuntu and install NGINX and DotNet Core
 
 First the AWSPowerShell module is imported to the current session.
 
