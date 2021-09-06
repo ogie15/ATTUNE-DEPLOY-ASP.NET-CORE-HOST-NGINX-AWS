@@ -9,7 +9,7 @@ $Script:ValueProcessEP = ($Script:ProcessEP).value__
 # Check if the Execution Policy of the process is set to Unrestricted
 if ($Script:ValueProcessEP -eq 0) {
 
-    # echo the message
+    # Write the message
     Write-Output "Execution Policy is already set to Unrestricted for the Process"
 # Check if the Execution Policy of the process is already set
 }else{
@@ -20,7 +20,7 @@ if ($Script:ValueProcessEP -eq 0) {
     # Checks if the Execution Policy has been set
     if ((Get-ExecutionPolicy -Scope Process).value__ -eq 0) {
 
-        # echo the message
+        # Write the message
         Write-Output "Execution Policy is now set to Unrestricted for the Process"
     }
 }
@@ -78,22 +78,22 @@ Set-AWSCredential -AccessKey $Script:AccessKeyValue -SecretKey $Script:SecretKey
 # check Hash Table
 if ($null -eq $Script:HashValue['KeyPair'] -or $null -eq $Script:HashValue['Region']) {
 
-    # echo the message
+    # Write the message
     Write-Output "Please check the Hash Table"
 }else {
 
-    # echo the message
+    # Write the message
     Write-Output "All keys are present in the Hash Table... checking keypair"
 
     # Checking KeyPair in hashtable
     if (!($Script:HashValue.ContainsKey('KeyPair')) -or $Script:HashValue.KeyPair -like "") {
 
-        # echo the message
+        # Write the message
         Write-Output "KeyPair does not exist in the Hash Table or it is an empty string"
 
     }else {
 
-        # echo the message
+        # Write the message
         Write-Output "Creating Ubuntu EC2 instance with NGINX and DOTNET Core"
 
         # Creat New EC@2 Instance
