@@ -11,7 +11,7 @@
 
 ## Region to Deploy Ubuntu and install NGINX and DotNet Core
 
-First the AWSPowerShell module is imported to the current session.
+First, the AWSPowerShell module is imported to the current session.
 
 Then the values below are set:
 
@@ -28,7 +28,7 @@ Then the values below are set:
 
 ### Below is a table explaining how to create the variables on Attune with matching data types
 
-| Vaule in script | Value Location in Attune | Parameter location in Attune| Data Type | Example |
+| Value in script | Value Location in Attune | Parameter location in Attune| Data Type | Example |
 | :----: | :---: | :---: | :---: | :---: |
 | {accesskey.value} | (value) Inputs-Text Vaules-Variable | (access) Inputs-Text Vaules-Name | String | HKOPUHIVJOQQN3YNLCIL |
 | {secretkey.value} | (value) Inputs-Text Vaules-Variable | (secretkey) Inputs-Text Parameter-Name | String | MJYj7oBcNMTe+R+TTIWdQqXLYcttQ8IOwh1O9zH5 |
@@ -36,7 +36,7 @@ Then the values below are set:
 
 ---
 
-The Hash Table holds the InstanceID with it's corresponding Region.
+The Hash Table holds the InstanceID with its corresponding Region.
 
 *Hash Table Value Syntax:*
 
@@ -44,7 +44,7 @@ The Hash Table holds the InstanceID with it's corresponding Region.
 @{"Region" = "eu-west-2";"KeyPair" = "pemkeyname"}
 ```
 
-Next the UserDataText Variable is set
+Next, the UserDataText Variable is set
 
 *UserDataText variable is a shell script as written below:*
 
@@ -64,12 +64,12 @@ sudo apt-get install -y nginx
 
 ---
 
-Next the IAM AWS User credentials are set using the `Set-AWSCredential` CMDLET.
+Next, the IAM AWS User credentials are set using the `Set-AWSCredential` CMDLET.
 
 **NOTE**: _Ensure to edit the values of the parameters `AccessKey` and `SecretKey` in Attune to match the IAM user credentials with privileges to perform this operation._
 
-Next the Environment is deployed using the `New-EC2Instance` CMDLET.
+Next, the Environment is deployed using the `New-EC2Instance` CMDLET.
 
 **NOTE**: _The `Region` and `KeyPair` parameters are gotten from the Hash Table created in Attune and should not be left blank._
 
-Finally a CMDLET `Remove-AWSCredentialProfile` is run to remove the credential profile created in the session from the local credential store
+Finally, a CMDLET `Remove-AWSCredentialProfile` is run to remove the credential profile created in the session from the local credential store
