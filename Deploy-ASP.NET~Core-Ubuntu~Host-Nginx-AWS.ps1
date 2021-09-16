@@ -30,7 +30,11 @@ if ($Script:ValueProcessEP -eq 0) {
 
 
 
+<<<<<<< HEAD
 #Region to deploy Ubuntu Host For ASP.NET CORE with NGINX
+=======
+#Region to Deploy Ubuntu and install NGINX and DotNet Core
+>>>>>>> 2bb0b6867cbfaa57f5d83f468bb773d3dd44dfed
 # ===========================================================================
 # Import Module for AWS PowerShell
 Import-Module -Name AWSPowerShell
@@ -107,5 +111,10 @@ if ($null -eq $Script:HashValue['KeyPair'] -or $null -eq $Script:HashValue['Regi
 # Remove Profile
 Remove-AWSCredentialProfile -ProfileName $Script:ProfileNameVaule -Force
 
+<<<<<<< HEAD
 #EndRegion to deploy Ubuntu Host For ASP.NET CORE with NGINX
 # ===========================================================================
+=======
+#EndRegion to Deploy Ubuntu and install NGINX and DotNet Core
+# ===========================================================================
+>>>>>>> 2bb0b6867cbfaa57f5d83f468bb773d3dd44dfed

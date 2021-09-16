@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Deploy-ASP.NET\~Core-Ubuntu\~Host-Nginx-AWS
+=======
+# This step deploys the Ubuntu AWS EC2 Instance and installs NGINX and DotNet Core
+>>>>>>> 2bb0b6867cbfaa57f5d83f468bb773d3dd44dfed
 
 ## Region for ExecutionPolicy
 
@@ -9,9 +13,15 @@
 
 ---
 
+<<<<<<< HEAD
 ## Region to Deploy Ubuntu Host For ASP.NET CORE with NGINX
 
 First the AWSPowerShell module is imported to the current session.
+=======
+## Region to Deploy Ubuntu and install NGINX and DotNet Core
+
+First, the AWSPowerShell module is imported to the current session.
+>>>>>>> 2bb0b6867cbfaa57f5d83f468bb773d3dd44dfed
 
 Then the values below are set:
 
@@ -28,6 +38,7 @@ Then the values below are set:
 
 ### Below is a table explaining how to create the variables on Attune with matching data types
 
+<<<<<<< HEAD
 ---
 
 | Vaule in script | Value Location in Attune | Parameter location in Attune| Data Type | Example |
@@ -39,6 +50,17 @@ Then the values below are set:
 ---
 
 The Hash Table holds the InstanceID with it's corresponding Region.
+=======
+| Value in script | Value Location in Attune | Parameter location in Attune| Data Type | Example |
+| :----: | :---: | :---: | :---: | :---: |
+| {accesskey.value} | (value) Inputs-Text Vaules-Variable | (access) Inputs-Text Vaules-Name | String | HKOPUHIVJOQQN3YNLCIL |
+| {secretkey.value} | (value) Inputs-Text Vaules-Variable | (secretkey) Inputs-Text Parameter-Name | String | MJYj7oBcNMTe+R+TTIWdQqXLYcttQ8IOwh1O9zH5 |
+| {hashvalue.value} | (value) Inputs-Text Vaules-Variable | (hashvalue) Inputs-Text Parameter-Name | Hash Table | @{"Region" = "eu-west-2";"KeyPair" = "pemkeyname"} |
+
+---
+
+The Hash Table holds the InstanceID with its corresponding Region.
+>>>>>>> 2bb0b6867cbfaa57f5d83f468bb773d3dd44dfed
 
 *Hash Table Value Syntax:*
 
@@ -46,9 +68,15 @@ The Hash Table holds the InstanceID with it's corresponding Region.
 @{"Region" = "eu-west-2";"KeyPair" = "pemkeyname"}
 ```
 
+<<<<<<< HEAD
 Next the UserDataText Variable is set
 
 UserDataText variable is a shell script as written below:
+=======
+Next, the UserDataText Variable is set
+
+*UserDataText variable is a shell script as written below:*
+>>>>>>> 2bb0b6867cbfaa57f5d83f468bb773d3dd44dfed
 
 ```bash
 #!/bin/bash
@@ -66,8 +94,20 @@ sudo apt-get install -y nginx
 
 ---
 
+<<<<<<< HEAD
 - *Next the IAM AWS User credentials are set using the `Set-AWSCredential` CMDLET*
 - *__NOTE__: Ensure to edit the values of the parameters `AccessKey` and `SecretKey` in Attune to match the IAM user credentials with privileges to perform this operation*
 - *Next the Environment is deployed using the `New-EC2Instance` CMDLET*
 - *__NOTE__: The `Region` and `KeyPair` parameters are gotten from the Hash Table created in Attune and should not be left blank*
 - *Finally a CMDLET `Remove-AWSCredentialProfile` is run to remove the credential profile created in the session from the local credential store*
+=======
+Next, the IAM AWS User credentials are set using the `Set-AWSCredential` CMDLET.
+
+**NOTE**: _Ensure to edit the values of the parameters `AccessKey` and `SecretKey` in Attune to match the IAM user credentials with privileges to perform this operation._
+
+Next, the Environment is deployed using the `New-EC2Instance` CMDLET.
+
+**NOTE**: _The `Region` and `KeyPair` parameters are gotten from the Hash Table created in Attune and should not be left blank._
+
+Finally, a CMDLET `Remove-AWSCredentialProfile` is run to remove the credential profile created in the session from the local credential store
+>>>>>>> 2bb0b6867cbfaa57f5d83f468bb773d3dd44dfed
