@@ -2,6 +2,10 @@
 
 This Blueprint is used for deploying an Ubuntu AWS EC2 instance with NGINX and ASP.NET Core installed.
 
+ASP.NET Core is a free and open-source web framework, developed by Microsoft.
+
+NginX, is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache.
+
 ## Pre-Blueprint Attune setup
 
 1. On the Inputs tab, create a Windows Node for the host you wish to run the AWS EC2 shutdown script.
