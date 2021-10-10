@@ -1,5 +1,4 @@
 #Region for ExecutionPolicy
-# ===========================================================================
 # Get Execution Policy of the current process
 $Script:ProcessEP = Get-ExecutionPolicy -Scope Process
 
@@ -24,38 +23,33 @@ if ($Script:ValueProcessEP -eq 0) {
         Write-Output "Execution Policy is now set to Unrestricted for the Process"
     }
 }
-# ===========================================================================
 #EndRegion for ExecutionPolicy 
 
 
-
-
-#Region to Deploy Ubuntu and install NGINX and DotNet Core
-# ===========================================================================
+#Region to Deploy Ubuntu and install NGINX and ASP.NET Core
 # Import Module for AWS PowerShell
 Import-Module -Name AWSPowerShell
 
-# # Save accesskey to this Variable
+# Save accesskey to this Variable
 $Script:AccessKeyValue = "{accesskey.value}"
 
-# # Save secretkey to this variable
+# Save secretkey to this variable
 $Script:SecretKeyValue = "{secretkey.value}"
 
 # # Set value to store profile 
 $Script:ProfileNameVaule = "DefaultSetKeys"
 
 # Set the AWS Image ID
-$Script:AWSImageId = "ami-0244a5621d426859b"
+$Script:AWSImageId = "{awsimageid.value}"
 
 # Set the AWS Instance Type
-$Script:AWSInstanceType = "t2.micro"
+$Script:AWSInstanceType = "{awsinstancetype.value}"
 
-# # Hash Table of InstanceId with coressponding region pair
+# Hash Table containing Region of the virtual machine and KeyPair
 $Script:HashValue = {hashvalue.value}
 
 
-
-# UserData script for DotNet and Nginx
+# UserData script for installation of DotNet and Nginx
 $Script:UserDataText = "#!/bin/bash
 wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -69,10 +63,8 @@ sudo apt-get install -y aspnetcore-runtime-3.1
 sudo apt-get install -y nginx"
 
 
-
 # Set AWS Credentials
 Set-AWSCredential -AccessKey $Script:AccessKeyValue -SecretKey $Script:SecretKeyValue -StoreAs $Script:ProfileNameVaule
-
 
 
 # check Hash Table
@@ -94,18 +86,14 @@ if ($null -eq $Script:HashValue['KeyPair'] -or $null -eq $Script:HashValue['Regi
     }else {
 
         # Write the message
-        Write-Output "Creating Ubuntu EC2 instance with NGINX and DOTNET Core"
+        Write-Output "Creating Ubuntu EC2 instance with NGINX and ASP.NET Core"
 
-        # Creat New EC@2 Instance
+        # Creat New EC2 Instance
         New-EC2Instance -ImageId $Script:AWSImageId -InstanceType $Script:AWSInstanceType -KeyName $Script:HashValue['KeyPair'] -Region $Script:HashValue['Region']`
         -ProfileName $Script:ProfileNameVaule -UserData $Script:UserDataText -EncodeUserData -Force
     }
 }
 
-
-
 # Remove Profile
 Remove-AWSCredentialProfile -ProfileName $Script:ProfileNameVaule -Force
-
-#EndRegion to Deploy Ubuntu and install NGINX and DotNet Core
-# ===========================================================================
+#EndRegion to Deploy Ubuntu and install NGINX and ASP.NET Core
